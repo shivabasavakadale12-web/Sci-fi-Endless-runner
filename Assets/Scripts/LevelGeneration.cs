@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
-    [SerializeField] GameObject plateforms;
-    [SerializeField] int plateformlength = 12;
-    [SerializeField] Transform plateformparent;
+    [SerializeField] GameObject platforms;
+    [SerializeField] int platformlength = 12;
+    [SerializeField] Transform platformparent;
 
-    float platelength = 10f;
+    float platlength = 10f;
     float movespeed = 2f;
     float speedovertime = 0.01f;
 
@@ -31,7 +31,7 @@ public class LevelGeneration : MonoBehaviour
 
     private void spwnpz()
     {
-        for (int i = 0; i < plateformlength; i++)
+        for (int i = 0; i < platformlength; i++)
         {
             spwanplateform();
 
@@ -43,7 +43,7 @@ public class LevelGeneration : MonoBehaviour
         float spwanposz = calculateplateforms();
 
         Vector3 spwnz = new Vector3(transform.position.x, transform.position.y, spwanposz);
-        GameObject newplateform = Instantiate(plateforms, spwnz, Quaternion.identity);
+        GameObject newplateform = Instantiate(platforms, spwnz, Quaternion.identity);
 
         plateform.Add(newplateform);
     }
@@ -59,7 +59,7 @@ public class LevelGeneration : MonoBehaviour
 
         else
         {
-            spwanposz = plateform[plateform.Count - 1].transform.position.z + platelength;
+            spwanposz = plateform[plateform.Count - 1].transform.position.z + platlength;
         }
 
         return spwanposz;
@@ -76,7 +76,7 @@ public class LevelGeneration : MonoBehaviour
             currentplateform.transform.Translate(-movespeed * (Time.deltaTime * transform.forward));
             movespeed += speedovertime * Time.deltaTime;
 
-            if (currentplateform.transform.position.z < Camera.main.transform.position.z - platelength)
+            if (currentplateform.transform.position.z < Camera.main.transform.position.z - platlength)
             {
 
                 plateform.Remove(currentplateform);
