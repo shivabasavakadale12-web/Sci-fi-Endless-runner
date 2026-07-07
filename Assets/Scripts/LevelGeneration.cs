@@ -1,6 +1,4 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
@@ -14,7 +12,7 @@ public class LevelGeneration : MonoBehaviour
     float speedovertime = 0.01f;
 
    
-    List<GameObject> plateform= new List<GameObject>();
+    List<GameObject> platform= new List<GameObject>();
 
 
     private void Start()
@@ -26,62 +24,62 @@ public class LevelGeneration : MonoBehaviour
     private void Update()
     {
         
-        moveplateforms();
+        moveplatforms();  
     }
 
     private void spwnpz()
     {
         for (int i = 0; i < platformlength; i++)
         {
-            spwanplateform();
+            spawnplateform();
 
         }
     }
 
-    private void spwanplateform()
+    private void spawnplateform()
     {
-        float spwanposz = calculateplateforms();
+        float spawnposz = calculateplatforms();
 
-        Vector3 spwnz = new Vector3(transform.position.x, transform.position.y, spwanposz);
-        GameObject newplateform = Instantiate(platforms, spwnz, Quaternion.identity);
+        Vector3 spwnz = new Vector3(transform.position.x, transform.position.y, spawnposz);
+        GameObject newplatform = Instantiate(platforms, spwnz, Quaternion.identity);
 
-        plateform.Add(newplateform);
+        platform.Add(newplatform);
     }
 
-    private float calculateplateforms()
+    private float calculateplatforms()
     {
-        float spwanposz;
+        float spawnposz;
 
-        if (plateform.Count == 0)
+        if (platform.Count == 0)
         {
-            spwanposz = transform.position.z;
+            spawnposz = transform.position.z;
         }
 
         else
         {
-            spwanposz = plateform[plateform.Count - 1].transform.position.z + platlength;
+            spawnposz = platform[platform.Count - 1].transform.position.z + platlength;
         }
 
-        return spwanposz;
+        return spawnposz;
 
     }
 
-    private void moveplateforms()
+    private void moveplatforms()
     {
         
-        for (int i = 0; i < plateform.Count; i++)
+        for (int i = 0; i < platform.Count; i++)
         { 
 
-            GameObject currentplateform = plateform[i];
+            GameObject currentplateform = platform[i];
             currentplateform.transform.Translate(-movespeed * (Time.deltaTime * transform.forward));
             movespeed += speedovertime * Time.deltaTime;
 
             if (currentplateform.transform.position.z < Camera.main.transform.position.z - platlength)
             {
 
-                plateform.Remove(currentplateform);
+                platform.Remove(currentplateform);
                 Destroy(currentplateform);
-               spwanplateform();
+               spawnplateform();
 
 
             }
