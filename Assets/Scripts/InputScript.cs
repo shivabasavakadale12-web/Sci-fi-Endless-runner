@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 public class InputScript : MonoBehaviour
 {
     [SerializeField] float movespeed = 15f;
-
+    [SerializeField] float xclamp = 3f;
+    [SerializeField] float zclamp = 0f;
     Vector2 movement;
 
     Rigidbody RB;
@@ -25,7 +26,6 @@ public class InputScript : MonoBehaviour
     {
       
         movement = context.ReadValue<Vector2>();
-        Debug.Log(movement);
 
     }
     void MovePosition()
@@ -34,6 +34,9 @@ public class InputScript : MonoBehaviour
         Vector3 movedirection = new Vector3(movement.x, 0f, movement.y);
         Vector3 newposition = currentposition + movedirection * (movespeed * Time.fixedDeltaTime);
 
+        newposition.x = Mathf.Clamp(newposition.x, -xclamp, xclamp);
+        newposition.z = Mathf.Clamp(newposition.z, -zclamp, zclamp);
+
         RB.MovePosition(newposition);
     }
-}
+}   
