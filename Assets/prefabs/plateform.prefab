@@ -155,6 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001817675659919812}
+  - component: {fileID: 7471311453356258142}
   m_Layer: 0
   m_Name: plateform
   m_TagString: Untagged
@@ -182,6 +183,23 @@ Transform:
   - {fileID: 5688086863576274808}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7471311453356258142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150024430559236061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95836357d9aa2e54aabcf98dcf7fab60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  chunkprefabs: {fileID: 4417304863311619488, guid: b9453fe6e5f63ff48b26156d4a7c3ac6, type: 3}
+  spawner:
+  - -1.7
+  - 0
+  - 1.7
 --- !u!1001 &854375744597449729
 PrefabInstance:
   m_ObjectHideFlags: 0

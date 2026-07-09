@@ -6,6 +6,7 @@ public class ObsticlesSpawners : MonoBehaviour
     [SerializeField] GameObject[] obstacle;
     [SerializeField] Transform obstacleparent; 
     [SerializeField] float waitforobstacle = 1f;
+    [SerializeField] float spawnWidth = 4f;
 
     
     void Start()
@@ -17,8 +18,9 @@ public class ObsticlesSpawners : MonoBehaviour
     {
         while (true)
         {
+            Vector3 spawnpositon = new Vector3(Random.Range(-spawnWidth, spawnWidth), transform.position.y, transform.position.z);
             yield return new WaitForSeconds(waitforobstacle);
-            Instantiate(obstacle[Random.Range(0, obstacle.Length)], transform.position, Random.rotation, obstacleparent);
+            Instantiate(obstacle[Random.Range(0, obstacle.Length)], spawnpositon, Random.rotation, obstacleparent);
 
         }
     }
