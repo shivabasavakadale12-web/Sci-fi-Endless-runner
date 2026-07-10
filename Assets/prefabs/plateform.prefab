@@ -196,10 +196,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   chunkprefabs: {fileID: 4417304863311619488, guid: b9453fe6e5f63ff48b26156d4a7c3ac6, type: 3}
+  Appleprefabs: {fileID: 5851893942333760107, guid: 0dc081bb7fada184c8a9084fe8973e66, type: 3}
+  coinperfabs: {fileID: 5187909011612309858, guid: 45e581aefec3ec84fa73a8d78ef40539, type: 3}
   spawner:
   - -1.7
   - 0
   - 1.7
+  randomspawn: 0.3
+  randomcoinspawn: 0.5
+  spawnposition: 1.16
 --- !u!1001 &854375744597449729
 PrefabInstance:
   m_ObjectHideFlags: 0
