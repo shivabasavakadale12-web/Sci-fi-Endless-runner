@@ -24,8 +24,9 @@ public class InputScript : MonoBehaviour
 
     public void move(InputAction.CallbackContext context)
     {
-      
+       
         movement = context.ReadValue<Vector2>();
+  
 
     }
     void MovePosition()

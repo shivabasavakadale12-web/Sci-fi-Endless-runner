@@ -7,12 +7,19 @@ public class LevelGeneration : MonoBehaviour
     [SerializeField] int platformlength = 12;
     [SerializeField] Transform platformparent;
 
-    float platlength = 10f;
-    float movespeed = 2f;
-    float speedovertime = 0.01f;
+          float platlength = 10f;
+   public float movespeed = 2f;
+   public float speedovertime = 0.01f;
 
-   
+    public static LevelGeneration instance;
+
     List<GameObject> platform= new List<GameObject>();
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
 
     private void Start()
@@ -87,5 +94,7 @@ public class LevelGeneration : MonoBehaviour
           
         }
 
+
     }
+
 }

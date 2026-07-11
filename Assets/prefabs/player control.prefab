@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1305134117117581176}
   - component: {fileID: 2911439522262611636}
   - component: {fileID: 7584481855160424267}
+  - component: {fileID: 4672135378945950244}
   - component: {fileID: 891683666152125160}
-  - component: {fileID: 3263887386913151400}
+  - component: {fileID: 2010270504994136196}
   m_Layer: 0
   m_Name: player control
   m_TagString: Untagged
@@ -49,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
   m_Actions: {fileID: -944628639613478452, guid: 5e9653cdabf42d2408fab5cf5e77b8a8, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -60,7 +61,23 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7584481855160424267}
+        m_TargetAssemblyTypeName: InputScript, Assembly-CSharp
+        m_MethodName: move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: eb9f9258-5d3e-498a-8a33-a6b3eedd7c62
+    m_ActionName: 'playermove/Player Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: playermove
@@ -73,11 +90,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272975163834301849}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c6a20a5ba5d8c743bfa379cd492f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  movespeed: 15
+  xclamp: 3
+  zclamp: 0
+--- !u!114 &4672135378945950244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272975163834301849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb61c7d2361e834fa70e0e586b98540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playercollision
+  chunks: {fileID: 0}
+  player: {fileID: 0}
 --- !u!54 &891683666152125160
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -100,13 +134,13 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3263887386913151400
-BoxCollider:
+--- !u!136 &2010270504994136196
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,10 +156,12 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.79, y: 2.06, z: 0.54}
-  m_Center: {x: 0, y: 0.99, z: 0}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1001 &5632140676621606746
 PrefabInstance:
   m_ObjectHideFlags: 0
