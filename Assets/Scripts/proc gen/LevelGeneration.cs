@@ -6,6 +6,8 @@ public class LevelGeneration : MonoBehaviour
     [SerializeField] GameObject platforms;
     [SerializeField] int platformlength = 12;
     [SerializeField] Transform platformparent;
+    [SerializeField] float maxspeed = 14f;
+
 
           float platlength = 10f;
    public float movespeed = 2f;
@@ -34,12 +36,23 @@ public class LevelGeneration : MonoBehaviour
         moveplatforms();  
     }
 
+    public void flatformmovespeed(float speedamount)
+    {
+        movespeed += speedamount;
+
+        if (movespeed > maxspeed)
+        {
+            movespeed = maxspeed;
+        }
+
+        Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z - speedamount);
+    }
+
     private void spwnpz()
     {
         for (int i = 0; i < platformlength; i++)
         {
             spawnplateform();
-
         }
     }
 
@@ -91,10 +104,7 @@ public class LevelGeneration : MonoBehaviour
 
             }
 
-          
         }
 
-
     }
-
 }

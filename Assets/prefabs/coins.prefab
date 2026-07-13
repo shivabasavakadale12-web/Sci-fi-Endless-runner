@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7759895521731574240}
   - component: {fileID: 7508584725166360264}
-  - component: {fileID: 1132046614226076564}
+  - component: {fileID: 4564985269144157010}
   m_Layer: 0
   m_Name: coins
   m_TagString: Untagged
@@ -89,7 +89,7 @@ CapsuleCollider:
   m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: -3.55, z: 0}
---- !u!114 &1132046614226076564
+--- !u!114 &4564985269144157010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,9 +98,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5187909011612309858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7748c271e77783241802d867875f0395, type: 3}
+  m_Script: {fileID: 11500000, guid: 266bc3fcdb5937c4385c7af7aa02e7fc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Collectable
+  m_EditorClassIdentifier: Assembly-CSharp::coin
 --- !u!1001 &8073175273000451569
 PrefabInstance:
   m_ObjectHideFlags: 0

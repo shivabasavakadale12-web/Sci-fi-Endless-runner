@@ -8,7 +8,7 @@ public class chunk : MonoBehaviour
     [SerializeField] GameObject chunkprefabs;
     [SerializeField] GameObject Appleprefabs;
     [SerializeField] GameObject coinperfabs;
-    [SerializeField] float[] spawner = { -2f, 0f, 2.2f };
+    [SerializeField] float[] spawner = { -2f, 0f, 2f };
     [SerializeField] float randomapplespawn = .3f;
     [SerializeField] float randomcoinspawn = .5f;
 
@@ -35,7 +35,7 @@ public class chunk : MonoBehaviour
         {
             int selectedlanes = spawnonlanes();
 
-            Vector3 spawnfences = new Vector3(spawner[selectedlanes], -3.5f, transform.position.z);
+            Vector3 spawnfences = new Vector3(spawner[selectedlanes], -3.5f, transform.position.z + 1f);
             Instantiate(chunkprefabs, spawnfences, Quaternion.identity, this.transform);
         }
 

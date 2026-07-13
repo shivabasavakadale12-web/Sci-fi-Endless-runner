@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1167792672608508356, guid: c4beec6362026e349b157bb37b26c8a4, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4811914379406547764, guid: c4beec6362026e349b157bb37b26c8a4, type: 3}
       propertyPath: m_Name
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7571714405439413915, guid: c4beec6362026e349b157bb37b26c8a4, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8247328167376480077, guid: c4beec6362026e349b157bb37b26c8a4, type: 3}
       propertyPath: m_Size.z
@@ -66,33 +66,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8247328167376480077, guid: c4beec6362026e349b157bb37b26c8a4, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8388420292797807593, guid: c4beec6362026e349b157bb37b26c8a4, type: 3}
+    - target: {fileID: 8388420292797807593, guid: c4beec6362026e349b157bb37b26c8a4, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8549279647667406800, guid: c4beec6362026e349b157bb37b26c8a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6255244673641813659}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4beec6362026e349b157bb37b26c8a4, type: 3}
---- !u!1 &661771273321658692 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8549279647667406800, guid: c4beec6362026e349b157bb37b26c8a4, type: 3}
-  m_PrefabInstance: {fileID: 9190212950694330004}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6255244673641813659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661771273321658692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 102eee2c7cda8e943bce43a25221db1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Triggerenter
-  playerrig: {fileID: 1272975163834301849, guid: 81495e82e687be248911f948babde40c, type: 3}
-  player: {fileID: 919132149155446097, guid: c349c914fdd739041b58a931c9682720, type: 3}

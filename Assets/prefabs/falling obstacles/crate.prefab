@@ -122,6 +122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: crate
       objectReference: {fileID: 0}
+    - target: {fileID: 6180505951174865983, guid: 6e3f6b027cdc7eb4ebbcd83074fc6e2a, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 7868237877090520915, guid: 6e3f6b027cdc7eb4ebbcd83074fc6e2a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

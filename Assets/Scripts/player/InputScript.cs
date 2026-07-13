@@ -1,16 +1,20 @@
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class InputScript : MonoBehaviour
 {
     [SerializeField] float movespeed = 15f;
     [SerializeField] float xclamp = 3f;
     [SerializeField] float zclamp = 0f;
+
+    
     Vector2 movement;
 
     Rigidbody RB;
-
+    
+ 
     private void Start()
     {
         RB = GetComponent<Rigidbody>();
@@ -20,7 +24,9 @@ public class InputScript : MonoBehaviour
     private void FixedUpdate()
     {
         MovePosition();  
+      
     }
+
 
     public void move(InputAction.CallbackContext context)
     {
@@ -29,6 +35,8 @@ public class InputScript : MonoBehaviour
   
 
     }
+
+
     void MovePosition()
     {
         Vector3 currentposition = RB.position;

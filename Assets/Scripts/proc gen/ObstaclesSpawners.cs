@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ObsticlesSpawners : MonoBehaviour
+public class ObstaclesSpawners : MonoBehaviour
 {
     [SerializeField] GameObject[] obstacle;
     [SerializeField] Transform obstacleparent; 
