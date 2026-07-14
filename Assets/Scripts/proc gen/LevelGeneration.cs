@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
+    [SerializeField] CameraController controller;
     [SerializeField] GameObject platforms;
     [SerializeField] int platformlength = 12;
     [SerializeField] Transform platformparent;
@@ -46,6 +48,7 @@ public class LevelGeneration : MonoBehaviour
         }
 
         Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z - speedamount);
+        controller.changecamerafov(speedamount);
     }
 
     private void spwnpz()
