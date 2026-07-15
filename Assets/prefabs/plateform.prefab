@@ -202,7 +202,7 @@ MonoBehaviour:
   - -2
   - 0
   - 3
-  randomapplespawn: 0.3
+  randomapplespawn: 0.05
   randomcoinspawn: 0.5
   spawncoinsep: 2
   spawnposition: 1.16

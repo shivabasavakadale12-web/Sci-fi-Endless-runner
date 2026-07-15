@@ -3,6 +3,9 @@ using UnityEngine;
 public class apple : Collectable
 {
 
+    float speed = 4f;
+
+
     LevelGeneration levelGeneration;
 
     [System.Obsolete]
@@ -14,14 +17,14 @@ public class apple : Collectable
 
     protected override void Collect()
     {
-        Debug.Log("power up!");
+        
         levelGeneration.flatformmovespeed(2f);
-        Invoke("countdown", 10f);
+        Invoke(nameof(countdown), 10f);
         Destroy(gameObject);
     }
 
     public void countdown()
     {
-       levelGeneration.flatformmovespeed(-2f);
+       levelGeneration.flatformmovespeed(-speed);
     }
 }

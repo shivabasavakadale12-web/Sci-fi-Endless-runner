@@ -10,11 +10,13 @@ public class CameraController : MonoBehaviour
     [SerializeField] float maxFov = 100f;
     [SerializeField] float zoomDuration = 1f;
     [SerializeField] float zoomSpeed = 5f;
+    [SerializeField] ParticleSystem speedup;
 
     CinemachineCamera cinemachineCamera;
 
     private void Awake()
     {
+        speedup.Pause();
         cinemachineCamera = GetComponent<CinemachineCamera>();
 
     }
@@ -29,19 +31,33 @@ public class CameraController : MonoBehaviour
         float currentfov = cinemachineCamera.Lens.FieldOfView;
         float targetfov = Mathf.Clamp(currentfov + speedamount * zoomSpeed, minFov, maxFov);
 
+
+
+        
         float elapsedTime = 0f;
-        while (true)
+        while (elapsedTime < zoomDuration)
         {
-            float t = elapsedTime / zoomDuration;
-            if (elapsedTime < zoomDuration)
-            {
              elapsedTime += Time.deltaTime;
+             float t = elapsedTime / zoomDuration;
              cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(currentfov, targetfov, t);
              yield return null;
-            }
-
+            
+            speedup.Play();
             cinemachineCamera.Lens.FieldOfView = targetfov;
         }
+
+        yield return new WaitForSeconds(10f);
+
+        elapsedTime = 0f;
+        while (elapsedTime < zoomDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / zoomDuration;
+            cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(targetfov, currentfov, t);
+            yield return null;
+        }
+
+        cinemachineCamera.Lens.FieldOfView = currentfov;
     }
 
 

@@ -5,11 +5,15 @@ using UnityEngine.UIElements;
 
 public class chunk : MonoBehaviour
 {
+    [Header("Game Objects")]
     [SerializeField] GameObject chunkprefabs;
     [SerializeField] GameObject Appleprefabs;
     [SerializeField] GameObject coinperfabs;
+
+    [Header("spawners")]
+    [Tooltip("do not change unless worth changing yup lets go")]
     [SerializeField] float[] spawner = { -2f, 0f, 2f };
-    [SerializeField] float randomapplespawn = .3f;
+    [SerializeField] float randomapplespawn = .1f;
     [SerializeField] float randomcoinspawn = .5f;
 
     [SerializeField] float spawncoinsep = 2f;
