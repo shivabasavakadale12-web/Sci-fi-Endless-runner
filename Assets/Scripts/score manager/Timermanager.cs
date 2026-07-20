@@ -6,27 +6,23 @@ public class Timermanager : MonoBehaviour
 {
     [SerializeField] TMP_Text timetext;
 
-   public float initialtime;
-   public bool elapsed = true;
+  float initialtime = 0f;
+  bool gameover = true;
 
-    public static Timermanager instance;
-   
- 
-  public void Update()
+    public bool GameOver
     {
-        if(elapsed)
+        get { return gameover; }
+        set { gameover = value; }
+    }
+
+   void Update()
+    {
+        if(gameover)
         {
 
          initialtime += Time.deltaTime;
-         timetext.text = Time.realtimeSinceStartup.ToString("F0");
+         timetext.text = initialtime.ToString("F0");
 
         }
-    }
-
-    public void timerstop()
-    {
-       elapsed = false;
-    }
-
-    
+    }  
 }

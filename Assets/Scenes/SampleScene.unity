@@ -639,7 +639,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1461,7 +1461,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelGeneration
   controller: {fileID: 303778370}
-  platforms: {fileID: 9150024430559236061, guid: b5c79479c3de7e941ab83f1ca3c3c4ac, type: 3}
+  platforms:
+  - {fileID: 1201834526449542969, guid: 32208432e819e364e84c5e4a53bd52ba, type: 3}
+  - {fileID: 1201834526449542969, guid: abec7899f4e32804ca5047774fe00ff5, type: 3}
+  - {fileID: 1201834526449542969, guid: 917b57e2feb51d545b77493e23e710ba, type: 3}
+  - {fileID: 9150024430559236061, guid: b5c79479c3de7e941ab83f1ca3c3c4ac, type: 3}
+  - {fileID: 9150024430559236061, guid: b5c79479c3de7e941ab83f1ca3c3c4ac, type: 3}
+  - {fileID: 9150024430559236061, guid: b5c79479c3de7e941ab83f1ca3c3c4ac, type: 3}
+  - {fileID: 9150024430559236061, guid: b5c79479c3de7e941ab83f1ca3c3c4ac, type: 3}
+  flag: {fileID: 1201834526449542969, guid: 033600238a5e3de4792e76e76ef31165, type: 3}
   sm: {fileID: 434987768}
   platformlength: 12
   platformparent: {fileID: 2016852256}
@@ -6432,6 +6440,10 @@ PrefabInstance:
       propertyPath: gameovertext
       value: 
       objectReference: {fileID: 1073968150}
+    - target: {fileID: 4672135378945950244, guid: 81495e82e687be248911f948babde40c, type: 3}
+      propertyPath: timermanager
+      value: 
+      objectReference: {fileID: 434987769}
     - target: {fileID: 7584481855160424267, guid: 81495e82e687be248911f948babde40c, type: 3}
       propertyPath: animator
       value: 

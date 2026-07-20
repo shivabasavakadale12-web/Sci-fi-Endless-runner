@@ -5,8 +5,11 @@ using UnityEngine;
 public class LevelGeneration : MonoBehaviour
 {
     [SerializeField] CameraController controller;
-    [SerializeField] GameObject platforms;
+    [SerializeField] GameObject[] platforms;
+    [SerializeField] GameObject flag;
     [SerializeField] Scoremanager sm;
+
+    int platformspawned = 8;
     [SerializeField] int platformlength = 12;
     [SerializeField] Transform platformparent;
     [SerializeField] float maxspeed = 14f;
@@ -19,6 +22,7 @@ public class LevelGeneration : MonoBehaviour
     public static LevelGeneration instance;
 
     List<GameObject> platform= new List<GameObject>();
+    int  platformcount = 0;
 
 
     private void Awake()
@@ -61,14 +65,32 @@ public class LevelGeneration : MonoBehaviour
 
     private void spawnplateform()
     {
-        float spawnposz = calculateplatforms();
 
-        Vector3 spwnz = new Vector3(transform.position.x, transform.position.y, spawnposz);
-        GameObject newplatformGO = Instantiate(platforms, spwnz, Quaternion.identity);
+        float spawnposz = calculateplatforms();
+        GameObject newplat;
+        Vector3 spwnz;
+        chooseplateformtospawn(spawnposz, out newplat, out spwnz);
+
+        GameObject newplatformGO = Instantiate(newplat, spwnz, Quaternion.identity);
 
         platform.Add(newplatformGO);
         chunk newplatform = newplatformGO.GetComponent<chunk>();
         newplatform.Init(this, sm);
+
+        platformcount++;
+    }
+
+    private void chooseplateformtospawn(float spawnposz, out GameObject newplat, out Vector3 spwnz)
+    {
+        spwnz = new Vector3(transform.position.x, transform.position.y, spawnposz);
+        if (platformcount % platformspawned == 0 && platformcount != 0)
+        {
+            newplat = flag;
+        }
+        else
+        {
+            newplat = platforms[Random.Range(0, platforms.Length)];
+        }
     }
 
     private float calculateplatforms()
