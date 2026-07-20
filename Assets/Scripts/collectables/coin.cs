@@ -7,9 +7,9 @@ public class coin : Collectable
     Scoremanager scoremanager;
 
     [SerializeField] int scorepoint = 1;
-    private void Start()
+    public void Init(Scoremanager sm)
     {
-        scoremanager = FindAnyObjectByType<Scoremanager>();
+        scoremanager = sm;
     }
 
 

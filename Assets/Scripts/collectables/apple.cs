@@ -9,10 +9,9 @@ public class apple : Collectable
     LevelGeneration levelGeneration;
 
     [System.Obsolete]
-    private void Start()
+    public void Init(LevelGeneration Lg)
     {
-        levelGeneration = FindObjectOfType<LevelGeneration>();
-
+        levelGeneration = Lg;
     }
 
     protected override void Collect()

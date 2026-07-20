@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -22,6 +23,9 @@ public class chunk : MonoBehaviour
 
     List<int> availablelanes = new List<int> { 0, 1, 2 };
 
+
+    LevelGeneration levelGeneration;
+    Scoremanager scoremanager;
     private void Start()
     {
         spawnfence();
@@ -29,6 +33,12 @@ public class chunk : MonoBehaviour
         spawncoin();
     }
 
+    public void Init(LevelGeneration levelGeneration, Scoremanager sm)
+    {
+        this.levelGeneration = levelGeneration;
+        scoremanager = sm;
+
+    }
 
     void spawnfence()
     { 
@@ -53,7 +63,8 @@ public class chunk : MonoBehaviour
         int selectedlanes = spawnonlanes();
 
         Vector3 spawnfences = new Vector3(spawner[selectedlanes], spawnposition, transform.position.z);
-        Instantiate(Appleprefabs, spawnfences, Quaternion.identity, this.transform);
+        apple newapple = Instantiate(Appleprefabs, spawnfences, Quaternion.identity, this.transform).GetComponent<apple>();
+        newapple.Init(levelGeneration);
 
     }
 
@@ -71,7 +82,8 @@ public class chunk : MonoBehaviour
         {
        float spawnz = zposition - (i * spawncoinsep);
         Vector3 spawnfences = new Vector3(spawner[selectedlanes],spawnposition, spawnz);
-        Instantiate(coinperfabs, spawnfences, Quaternion.identity, this.transform);     
+        coin newcoin = Instantiate(coinperfabs, spawnfences, Quaternion.identity, this.transform).GetComponent<coin>();
+            newcoin.Init(scoremanager);  
         }
           
     }

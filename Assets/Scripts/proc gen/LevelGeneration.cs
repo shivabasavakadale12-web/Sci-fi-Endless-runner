@@ -6,6 +6,7 @@ public class LevelGeneration : MonoBehaviour
 {
     [SerializeField] CameraController controller;
     [SerializeField] GameObject platforms;
+    [SerializeField] Scoremanager sm;
     [SerializeField] int platformlength = 12;
     [SerializeField] Transform platformparent;
     [SerializeField] float maxspeed = 14f;
@@ -46,7 +47,6 @@ public class LevelGeneration : MonoBehaviour
         {
             movespeed = maxspeed;
         }
-
         Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z - speedamount);
         controller.changecamerafov(speedamount);
     }
@@ -64,9 +64,11 @@ public class LevelGeneration : MonoBehaviour
         float spawnposz = calculateplatforms();
 
         Vector3 spwnz = new Vector3(transform.position.x, transform.position.y, spawnposz);
-        GameObject newplatform = Instantiate(platforms, spwnz, Quaternion.identity);
+        GameObject newplatformGO = Instantiate(platforms, spwnz, Quaternion.identity);
 
-        platform.Add(newplatform);
+        platform.Add(newplatformGO);
+        chunk newplatform = newplatformGO.GetComponent<chunk>();
+        newplatform.Init(this, sm);
     }
 
     private float calculateplatforms()
@@ -100,7 +102,7 @@ public class LevelGeneration : MonoBehaviour
             if (currentplateform.transform.position.z < Camera.main.transform.position.z - platlength)
             {
 
-                platform.Remove(currentplateform);
+                 platform.Remove(currentplateform);
                 Destroy(currentplateform);
                spawnplateform();
 

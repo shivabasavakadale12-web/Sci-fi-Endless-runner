@@ -55,9 +55,9 @@ public class CameraController : MonoBehaviour
             float t = elapsedTime / zoomDuration;
             cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(targetfov, currentfov, t);
             yield return null;
+            cinemachineCamera.Lens.FieldOfView = currentfov;
         }
 
-        cinemachineCamera.Lens.FieldOfView = currentfov;
     }
 
 

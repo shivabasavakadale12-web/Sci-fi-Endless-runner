@@ -790,6 +790,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timermanager
   timetext: {fileID: 1721273293}
+  initialtime: 0
+  elapsed: 1
 --- !u!1 &666835595
 GameObject:
   m_ObjectHideFlags: 0
