@@ -5,6 +5,7 @@ public class apple : Collectable
 
     float speed = 4f;
 
+    [SerializeField] AudioSource powerup;
 
     LevelGeneration levelGeneration;
 
@@ -18,6 +19,7 @@ public class apple : Collectable
     {
         
         levelGeneration.flatformmovespeed(2f);
+        AudioSource.PlayClipAtPoint(powerup.clip, transform.position);
         Invoke(nameof(countdown), 10f);
         Destroy(gameObject);
     }

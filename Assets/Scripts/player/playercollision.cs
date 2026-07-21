@@ -4,9 +4,13 @@ using UnityEngine.SceneManagement;
 public class playercollision : MonoBehaviour
 {
     [SerializeField] Timermanager timermanager;
+
     [SerializeField] GameObject gameovertext;
     [SerializeField] GameObject chunks;
+
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource audioSource;
+
     [SerializeField] float cooldown = 1f;
 
     float cooldowntimer = 0f;
@@ -30,13 +34,14 @@ public class playercollision : MonoBehaviour
     {
         if (!timermanager.GameOver) return; 
         if (cooldowntimer < cooldown) return;
+        animator.SetTrigger(starthit);
         gameovertext.SetActive(true);
         Time.timeScale = .4f;
+        AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
         GetComponent<InputScript>().enabled = false;
         LevelGeneration.instance.movespeed = 0f;
         LevelGeneration.instance.speedovertime = 0f;
         GetComponent<Collider>().enabled = false;
-        animator.SetTrigger(starthit);
         cooldowntimer = 0f;
         Invoke("Invokedfor3sec", 3f);
 
