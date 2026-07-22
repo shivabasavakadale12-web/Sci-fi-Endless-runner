@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public class playercollision : MonoBehaviour
 {
     [SerializeField] Timermanager timermanager;
-
+    [SerializeField] AudioSource audio;
     [SerializeField] GameObject gameovertext;
     [SerializeField] GameObject chunks;
-
+    [SerializeField] GameObject menu;
     [SerializeField] Animator animator;
     [SerializeField] AudioSource audioSource;
 
@@ -19,6 +19,8 @@ public class playercollision : MonoBehaviour
 
     private void Start()
     {
+        menu.gameObject.SetActive(false);
+        audio.Play();
         gameovertext.SetActive(false);
         Time.timeScale = 1;
         GetComponent<InputScript>().enabled = true;
@@ -35,7 +37,7 @@ public class playercollision : MonoBehaviour
         if (!timermanager.GameOver) return; 
         if (cooldowntimer < cooldown) return;
         animator.SetTrigger(starthit);
-        gameovertext.SetActive(true);
+        audio.Stop();
         Time.timeScale = .4f;
         AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
         GetComponent<InputScript>().enabled = false;
@@ -43,14 +45,14 @@ public class playercollision : MonoBehaviour
         LevelGeneration.instance.speedovertime = 0f;
         GetComponent<Collider>().enabled = false;
         cooldowntimer = 0f;
-        Invoke("Invokedfor3sec", 3f);
+        Invoke("Menupopup", 0.5f);
+       
 
     }
 
- 
-
-    void Invokedfor3sec()
+    void Menupopup()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        menu.gameObject.SetActive(true);
+        gameovertext.SetActive(true);
     }
 }
